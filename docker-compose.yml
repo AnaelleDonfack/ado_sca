@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  adobackend:
+    image: anaellejeagni/ado_backend:optimized-v3
+    container_name: adobackend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./log/ado_backend.log:/log/ado_backend.log
+  adofrontend:
+    image: anaellejeagni/ado_frontend:optimized-v3
+    container_name: adofrontend
+    ports:
+      - "8081:8081"
+    depends_on:
+      - adobackend
