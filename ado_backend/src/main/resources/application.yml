@@ -1,2 +1,5 @@
 server:
   port: 8080
+logging:
+  file:
+    name: ./log/ado_backend.log
