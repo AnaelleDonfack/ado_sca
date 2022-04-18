@@ -1,6 +1,7 @@
 package com.example.ado_frontend.controller;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -8,7 +9,8 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class HomeController {
 
-    String serverName = "http://adobackend:8080/";
+    @Value("${backend.url}")
+    private String serverName;
     @GetMapping("/")
     public String getWelcome(){
         String uri = serverName+"welcome";
