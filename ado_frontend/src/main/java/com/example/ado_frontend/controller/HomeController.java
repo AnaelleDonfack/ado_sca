@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class HomeController {
 
-    String serverName = "http://127.0.0.1:8080/";
+    String serverName = "http://adobackend:8080/";
     @GetMapping("/")
     public String getWelcome(){
         String uri = serverName+"welcome";
