@@ -4,14 +4,36 @@ services:
   adobackend:
     image: anaellejeagni/ado_backend:optimized-v3
     container_name: adobackend
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
     ports:
-      - "8080:8080"
+      - "8080:8080" 
     volumes:
-      - ./log/ado_backend.log:/log/ado_backend.log
+      - ./log/backend:/log/backend
+    healthcheck:
+      test: ["CMD", "curl -f http://127.0.0.1:8080/welcome || exit 1"]
+      timeout: 30s
+      interval: 1m
+      retries: 3
   adofrontend:
-    image: anaellejeagni/ado_frontend:optimized-v3
+    image: anaellejeagni/ado_frontend:optimized-v4
     container_name: adofrontend
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
     ports:
       - "8081:8081"
-    depends_on:
+    volumes:
+      - ./log/frontend:/log/frontend
+    links:
       - adobackend
+    environment:
+      - backend.url=http://adobackend:8080/
+    healthcheck:
+      test: ["CMD", "curl -f http://127.0.0.1:8081 || exit 1"]
+      timeout: 30s
+      interval: 1m
+      retries: 3
