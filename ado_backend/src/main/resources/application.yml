@@ -3,3 +3,6 @@ server:
 logging:
   file:
     name: ./log/ado_backend.log
+app:
+  name: backend api
+  description: this is the backend server by docker image

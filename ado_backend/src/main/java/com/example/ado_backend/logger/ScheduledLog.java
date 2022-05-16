@@ -14,7 +14,7 @@ public class ScheduledLog {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ScheduledLog.class);
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 10000)
     public void reportCurrentTime(){
         LOGGER.info("The current time now is {}", LocalDateTime.now());
     }
