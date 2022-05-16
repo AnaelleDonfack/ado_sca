@@ -34,6 +34,7 @@ kubectl apply -f backend-deployment.yaml
 kubectl apply -f backend-service.yaml
 
 - Execute configuration file for backend
+
 Step 2 : access repository ado_frontend and execute this command:
 
 kubectl apply -f frontend-configMap.yaml
