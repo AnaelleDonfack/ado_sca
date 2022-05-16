@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class HomeController {
 
-    @Value("${backend.url}")
+    @Value("${backend.url:defaultValue}")
     private String serverName;
     @GetMapping("/")
     public String getWelcome(){

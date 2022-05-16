@@ -1,0 +1,17 @@
+#Service for adofrontend
+apiVersion: v1
+kind: Service
+metadata:
+  name: adofrontend-service
+spec:
+  selector:
+    app: adofrontend
+  # To make it external service
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+      # To make it external service
+      nodePort: 30001 #Port for external IP address, port to put in the browser
+      #It has a range : 30000-32767
