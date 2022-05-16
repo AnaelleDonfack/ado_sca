@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-configmap
+data:
+  app_name: backend api
+  app_description: you are on the front that call the back server by kubernetes

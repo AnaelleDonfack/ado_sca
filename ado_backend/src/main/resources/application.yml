@@ -5,4 +5,14 @@ logging:
     name: ./log/ado_backend.log
 app:
   name: backend api
-  description: this is the backend server by docker image
+  description: you are on the front that call the back server by docker image
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true

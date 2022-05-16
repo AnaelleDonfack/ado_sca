@@ -11,12 +11,12 @@ import org.slf4j.LoggerFactory;
 @RestController
 public class GetDataController {
 
-    @Value("${app.description}")
+    @Value("${app.description:defaultValue}")
     private String description;
     Logger logger = LoggerFactory.getLogger(GetDataController.class);
     @GetMapping("/welcome")
     public String getText(){
-        logger.trace("Le frontend vient de me contacter");
+        logger.info("Le frontend vient de me contacter");
         return description;
     }
 }
